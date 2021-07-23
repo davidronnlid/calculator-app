@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import NumberButton from "./calculatorComponents/numberButtons";
-// import ManipulateNumbersButton from "./calculatorComponents/buttonsThatManipulateNumbers";
+import ManipulateNumbersButton from "./calculatorComponents/buttonsThatManipulateNumbers";
 
 function App() {
   const [numberList, setNumberList] = useState([]);
@@ -90,28 +90,6 @@ function App() {
     });
   };
 
-  const calcBtnElms = [
-    "C",
-    "AC",
-    "%",
-    "/",
-    "7",
-    "8",
-    "9",
-    "X",
-    "4",
-    "5",
-    "6",
-    "-",
-    "1",
-    "2",
-    "3",
-    "+",
-    "0",
-    ".",
-    "=",
-  ];
-
   return (
     <div className="App">
       <header className="appHeader">
@@ -124,15 +102,54 @@ function App() {
             : numberList}
         </h2>
         <div className="calculatorButtons">
-          {calcBtnElms.map((elm) => (
-            <NumberButton onClick={addToDisplayArray(elm)}>{elm}</NumberButton>
-          ))}
+          <ManipulateNumbersButton
+            onClick={() => removeLastNumberFromDisplayArray()}
+          >
+            C
+          </ManipulateNumbersButton>
+          <ManipulateNumbersButton
+            onClick={() => removeAllNumbersFromDisplayArray()}
+          >
+            AC
+          </ManipulateNumbersButton>
+          <ManipulateNumbersButton
+            onClick={() => onePercentOfCurrentlyDisplayedVal()}
+          >
+            %
+          </ManipulateNumbersButton>
+          <ManipulateNumbersButton onClick={() => addToDisplayArray("/")}>
+            /
+          </ManipulateNumbersButton>
+          <NumberButton onClick={() => addToDisplayArray(7)}>7</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(8)}>8</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(9)}>9</NumberButton>
+          <ManipulateNumbersButton onClick={() => addToDisplayArray("X")}>
+            X
+          </ManipulateNumbersButton>{" "}
+          <NumberButton onClick={() => addToDisplayArray(4)}>4</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(5)}>5</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(6)}>6</NumberButton>
+          <ManipulateNumbersButton onClick={() => addToDisplayArray("-")}>
+            -
+          </ManipulateNumbersButton>{" "}
+          <NumberButton onClick={() => addToDisplayArray(1)}>1</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(2)}>2</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(3)}>3</NumberButton>
+          <ManipulateNumbersButton onClick={() => addToDisplayArray("+")}>
+            +
+          </ManipulateNumbersButton>
+          <NumberButton onClick={() => addToDisplayArray(0)}>0</NumberButton>
+          <NumberButton onClick={() => addToDisplayArray(".")}>.</NumberButton>
+          <ManipulateNumbersButton
+            className="equalTo"
+            onClick={() => evaluateDisplayVal()}
+          >
+            =
+          </ManipulateNumbersButton>
         </div>
       </div>
     </div>
   );
 }
-
-// Consider whether you might want to reverse your changes so that each button is rendered by itself, or whether you want to find a solution so that the operatorFunctions can be carried out per appropr. button and so that this renders without errors
 
 export default App;
