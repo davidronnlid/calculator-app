@@ -96,7 +96,7 @@ function App() {
   return (
     <div className="App">
       <header className="appHeader">
-        <p>Calculator</p>
+        <p>Calculator!</p>
       </header>
       <div className="calculatorContainer">
         <h2 className="calculatorDisplay">
