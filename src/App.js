@@ -37,56 +37,59 @@ function App() {
   };
 
   const evaluateDisplayVal = () => {
-    // Addition seems to work in the most common cases
-    // Subtraction, multiplication, and division seem to yield multiplication but with 2 only?
-
     setNumberList((numberList) => {
-      function checkForOperatorAndExecuteOperation(operator) {
-        console.log(operator);
+      let operator, operatorIndex;
 
-        let operatorIndex = numberList.findIndex((char) => char === operator);
-
-        if (operatorIndex === 0) {
-        } else {
-          const firstVar = parseFloat(
-            numberList.join("").slice(0, operatorIndex)
-          );
-          const secondVar = parseFloat(
-            numberList.join("").slice(operatorIndex + 1)
-          );
-
-          console.log(
-            "1: ",
-            firstVar,
-            typeof firstVar,
-            "2: ",
-            secondVar,
-            typeof secondVar,
-
-            firstVar + secondVar
-          );
-
-          if (operator === "+") {
-            return firstVar + secondVar;
-          } else if (operator === "-") {
-            return firstVar - secondVar;
-          } else if (operator === "X") {
-            return firstVar * secondVar;
-          } else if (operator === "/") {
-            return firstVar / secondVar;
-          } else {
-            return "Error";
-          }
+      for (let i = 0; i < numberList.length; i++) {
+        switch (numberList[i]) {
+          case "+":
+            operator = "+";
+            operatorIndex = i;
+            break;
+          case "/":
+            operator = "/";
+            operatorIndex = i;
+            break;
+          case "-":
+            operator = "-";
+            operatorIndex = i;
+            break;
+          case "X":
+            operator = "X";
+            operatorIndex = i;
+            break;
+          default:
+            break;
         }
       }
+      //Find possible operator and their index in numberList
 
-      for (
-        let operators = ["+", "-", "/", "x"], i = 0;
-        i < operators.length;
-        i++
-      ) {
-        return checkForOperatorAndExecuteOperation(operators[i]);
+      const firstVar = parseFloat(numberList.join("").slice(0, operatorIndex));
+      const secondVar = parseFloat(
+        numberList.join("").slice(operatorIndex + 1)
+      );
+      //Assign all numbers before/after the operator to separate variables and turn these numbers into type float
+
+      let result;
+      if (operator === "+") {
+        result = firstVar + secondVar;
+      } else if (operator === "/") {
+        result = firstVar / secondVar;
+      } else if (operator === "-") {
+        result = firstVar - secondVar;
+      } else if (operator === "X") {
+        result = firstVar * secondVar;
       }
+      //Carry out the user-selected operation and assign it to a new variable "result"
+
+      result = [...result.toString()];
+      //Set result to be an array so that the user can continue to add and manipulate numbers in interaction with display (would not be possible if result was still of type number)
+
+      if (result.length > 8) {
+        return "ERR";
+      }
+
+      return result;
     });
   };
 
@@ -148,6 +151,15 @@ function App() {
           </ManipulateNumbersButton>
         </div>
       </div>
+      <p>
+        This calculator was inspired by the user stories defined in{" "}
+        <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Calculator-App.md">
+          this repo
+        </a>{" "}
+        but was coded by David Rönnlid with no further instructions from
+        external parties (except Google, StackOverflow, etc.) regarding how to
+        develop it.
+      </p>
     </div>
   );
 }
