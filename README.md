@@ -1,3 +1,5 @@
+<a href="https://davidronnlidcalculator.netlify.app/">Go to app.</a>
+
 <p>
         This calculator was inspired by the user stories defined in
         <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Calculator-App.md">
