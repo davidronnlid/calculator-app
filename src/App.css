@@ -1,69 +1,17 @@
-.App {
-  text-align: center;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "~bootstrap/scss/bootstrap";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   App.scss 1:9  root stylesheet */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"~bootstrap/scss/bootstrap\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   App.scss 1:9  root stylesheet";
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.appHeader {
-  height: 100px;
-}
-
-.calculatorDisplay {
-  background-color: #2196f3;
-  padding: 10px;
-  margin: auto;
-  width: 200px;
-  height: 20px;
-  border: 1px solid black;
-}
-
-.calculatorButtons {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: #2196f3;
-  padding: 10px;
-  margin: auto;
-  width: 200px;
-  height: 200px;
-  grid-column-gap: 10px;
-}
-
-.calculatorButton {
-  border: 1px solid black;
-  margin: 2px;
-}
-
-.equalTo {
-  grid-column-start: 3;
-  grid-column-end: 5;
-}
-
-.calculator {
-  width: 300px;
-  height: 400px;
-  color: black;
-  border: 1px solid greenyellow;
-  margin: 10px auto;
-}
-
-/*# sourceMappingURL=App.css.map */

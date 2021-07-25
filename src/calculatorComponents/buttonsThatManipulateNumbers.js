@@ -1,6 +1,10 @@
 const ManipulateNumbersButton = (props) => {
+  const conditionalClassName = `${
+    props.children === "=" ? "calculatorButton equalTo" : "calculatorButton"
+  }`;
+
   return (
-    <button onClick={props.onClick} className="calculatorButton">
+    <button onClick={props.onClick} className={conditionalClassName}>
       {props.children}
     </button>
   );

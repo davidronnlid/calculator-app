@@ -1,9 +1,32 @@
-.App {
-  text-align: center;
+@import "~bootstrap/scss/bootstrap";
+
+$app-background-color: #bbdb9b;
+$primary-text-color: black;
+$primary-button-background-color: white;
+$primary-button-outline-color: black;
+$calculator-background-color: #8d9d90;
+$calculator-display-background: #9db4ab;
+
+@mixin box-border($multiplier: 1) {
+  border: $multiplier * 1px solid black;
+  border-radius: 4px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $app-background-color;
+
+  & .App {
+    text-align: center;
+  }
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,40 +40,35 @@
   color: #61dafb;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 .appHeader {
   height: 100px;
 }
 
 .calculatorDisplay {
-  background-color: #2196f3;
-  padding: 10px;
+  background-color: $calculator-display-background;
+  padding: 12px 10px 20px 10px;
   margin: auto;
   width: 200px;
   height: 20px;
-  border: 1px solid black;
+  @include box-border(1);
+  border-radius: 10px 10px 0px 0px;
 }
 
 .calculatorButtons {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  background-color: #2196f3;
+  background-color: $calculator-background-color;
   padding: 10px;
   margin: auto;
   width: 200px;
   height: 200px;
   grid-column-gap: 10px;
+  border: 1px solid black;
+  border-radius: 0px 0px 22px 22px;
 }
 
 .calculatorButton {
-  border: 1px solid black;
+  @include box-border(1);
   margin: 2px;
 }
 
@@ -63,6 +81,5 @@ body {
   width: 300px;
   height: 400px;
   color: black;
-  border: 1px solid greenyellow;
   margin: 10px auto;
 }

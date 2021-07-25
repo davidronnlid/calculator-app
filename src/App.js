@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import NumberButton from "./calculatorComponents/numberButtons";
 import ManipulateNumbersButton from "./calculatorComponents/buttonsThatManipulateNumbers";
+import AboutProjectCard from "./aboutProjectComponents/aboutProjectCard";
 
 function App() {
   const [numberList, setNumberList] = useState([]);
@@ -143,23 +144,12 @@ function App() {
           </ManipulateNumbersButton>
           <NumberButton onClick={() => addToDisplayArray(0)}>0</NumberButton>
           <NumberButton onClick={() => addToDisplayArray(".")}>.</NumberButton>
-          <ManipulateNumbersButton
-            className="equalTo"
-            onClick={() => evaluateDisplayVal()}
-          >
+          <ManipulateNumbersButton onClick={() => evaluateDisplayVal()}>
             =
           </ManipulateNumbersButton>
         </div>
+        <AboutProjectCard />
       </div>
-      <p>
-        This calculator was inspired by the user stories defined in{" "}
-        <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Calculator-App.md">
-          this repo
-        </a>{" "}
-        but was coded by David Rönnlid with no further instructions from
-        external parties (except Google, StackOverflow, etc.) regarding how to
-        develop it.
-      </p>
     </div>
   );
 }
