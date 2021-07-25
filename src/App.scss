@@ -10,7 +10,7 @@ $calculator-display-background: #caffb9;
   border-radius: 4px;
 }
 
-.App {
+.app {
   text-align: center;
   background-color: $app-background-color;
 }
@@ -45,7 +45,7 @@ $calculator-display-background: #caffb9;
   grid-column-gap: 10px;
   border: 1px solid black;
   border-radius: 0px 0px 22px 22px;
-  box-shadow: 0px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 1px rgba(0, 0, 0, 0.8);
 }
 
 .calculatorButton {

@@ -1,14 +1,13 @@
 import "./App.scss";
-import AboutProjectCard from "./aboutProjectComponents/aboutProjectCard";
+
+import AppTitle from "./aboutProjectComponents/appTitle";
 import Calculator from "./calculatorComponents/calculator";
+import AboutProjectCard from "./aboutProjectComponents/aboutProjectCard";
 
 function App() {
   return (
-    <div className="App">
-      <h4 className="appTitle">
-        Calculator developed by{" "}
-        <a href="https://www.linkedin.com/in/davidronnlid/">David Rönnlid</a>
-      </h4>
+    <div className="app">
+      <AppTitle />
       <Calculator />
       <AboutProjectCard />
     </div>

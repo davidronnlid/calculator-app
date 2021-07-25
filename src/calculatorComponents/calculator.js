@@ -36,6 +36,8 @@ const Calculator = () => {
   };
 
   const evaluateDisplayVal = () => {
+    //Takes numbers before/after a possible user-selected arithmetic operator and carries out the operation in question on these two numbers
+
     setNumberList((numberList) => {
       let operator, operatorIndex;
 
