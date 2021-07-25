@@ -1,8 +1,10 @@
+import Button from "react-bootstrap/Button";
+
 const NumberButton = (props) => {
   return (
-    <button onClick={props.onClick} className="calculatorButton">
+    <Button onClick={props.onClick} className="calculatorButton" variant="dark">
       {props.children}
-    </button>
+    </Button>
   );
 };
 

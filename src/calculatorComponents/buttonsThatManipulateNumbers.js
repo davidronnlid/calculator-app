@@ -1,3 +1,5 @@
+import Button from "react-bootstrap/Button";
+
 const ManipulateNumbersButton = (props) => {
   const conditionalClassName = `${
     props.children === "=" ? "calculatorButton equalTo" : "calculatorButton"
@@ -5,9 +7,13 @@ const ManipulateNumbersButton = (props) => {
   //Only add class "equalTo" to component with display text "=" (in order for the equal sign to span two grid columns)
 
   return (
-    <button onClick={props.onClick} className={conditionalClassName}>
+    <Button
+      variant="dark"
+      onClick={props.onClick}
+      className={conditionalClassName}
+    >
       {props.children}
-    </button>
+    </Button>
   );
 };
 
