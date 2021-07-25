@@ -31,6 +31,9 @@ const AboutProjectCard = () => {
           <Card
             style={{
               width: "100%",
+              backgroundColor: "#CAFFB9",
+              color: "black",
+              fontWeight: "600",
               borderRadius: "10px",
             }}
           >
@@ -48,7 +51,7 @@ const AboutProjectCard = () => {
                 variant="primary"
                 href="https://github.com/davidronnlid/calculator-app"
               >
-                Project Github Page
+                Project Github page
               </Button>
             </Card.Body>
           </Card>

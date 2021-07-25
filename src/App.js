@@ -5,13 +5,12 @@ import Calculator from "./calculatorComponents/calculator";
 function App() {
   return (
     <div className="App">
-      <header className="appHeader">
-        <p>Calculator!</p>
-      </header>
-      <div className="calculatorContainer">
-        <Calculator />
-        <AboutProjectCard />
-      </div>
+      <h4 className="appTitle">
+        Calculator developed by{" "}
+        <a href="https://www.linkedin.com/in/davidronnlid/">David Rönnlid</a>
+      </h4>
+      <Calculator />
+      <AboutProjectCard />
     </div>
   );
 }

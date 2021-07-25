@@ -85,7 +85,8 @@ const Calculator = () => {
       //Set result to be an array so that the user can continue to add and manipulate numbers in interaction with display (would not be possible if result was still of type number)
 
       if (result.length > 8) {
-        return "ERR";
+        alert("Operations that return more than 8 digits are not allowed");
+        return ["ERR"];
       }
 
       return result;
@@ -93,7 +94,7 @@ const Calculator = () => {
   };
 
   return (
-    <>
+    <div className="calcContainer">
       <h2 className="calculatorDisplay">
         {Array.isArray(numberList)
           ? numberList.filter((elm, indx) => indx <= 7 && elm)
@@ -142,7 +143,7 @@ const Calculator = () => {
           =
         </ManipulateNumbersButton>
       </div>
-    </>
+    </div>
   );
 };
 

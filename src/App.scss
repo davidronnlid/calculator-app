@@ -1,47 +1,27 @@
 @import "~bootstrap/scss/bootstrap";
 
-$app-background-color: #bbdb9b;
+$app-background-color: white;
 $primary-text-color: black;
-$primary-button-background-color: white;
-$primary-button-outline-color: black;
 $calculator-background-color: #8d9d90;
-$calculator-display-background: #9db4ab;
+$calculator-display-background: #caffb9;
 
 @mixin box-border($multiplier: 1) {
   border: $multiplier * 1px solid black;
   border-radius: 4px;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  text-align: center;
   background-color: $app-background-color;
-
-  & .App {
-    text-align: center;
-  }
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.appTitle {
+  margin-top: 20px;
+  font-weight: 800;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.appHeader {
-  height: 100px;
+.calcContainer {
+  margin: 30px auto 10px auto;
 }
 
 .calculatorDisplay {
@@ -49,7 +29,7 @@ body {
   padding: 12px 10px 20px 10px;
   margin: auto;
   width: 200px;
-  height: 20px;
+  height: 60px;
   @include box-border(1);
   border-radius: 10px 10px 0px 0px;
 }
@@ -65,6 +45,7 @@ body {
   grid-column-gap: 10px;
   border: 1px solid black;
   border-radius: 0px 0px 22px 22px;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.6);
 }
 
 .calculatorButton {
@@ -75,11 +56,4 @@ body {
 .equalTo {
   grid-column-start: 3;
   grid-column-end: 5;
-}
-
-.calculator {
-  width: 300px;
-  height: 400px;
-  color: black;
-  margin: 10px auto;
 }
