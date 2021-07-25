@@ -1,4 +1,4 @@
-<a href="https://davidronnlidcalculator.netlify.app/">Go to app.</a>
+<a href="https://davidronnlidcalculator.netlify.app/">Go to calculator.</a>
 
 <p>
         This calculator was inspired by the user stories defined in
