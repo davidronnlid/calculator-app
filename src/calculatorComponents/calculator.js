@@ -6,7 +6,7 @@ const Calculator = () => {
   const [numberList, setNumberList] = useState([]);
 
   const addToDisplayArray = (newNumber) => {
-    setNumberList((numberList) => [...numberList, newNumber]);
+    setNumberList((numberList) => [...numberList, newNumber.toString()]);
   };
 
   const removeLastNumberFromDisplayArray = () => {
