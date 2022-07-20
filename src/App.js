@@ -1,17 +1,15 @@
-import "./App.scss";
+import './App.scss'
 
-import AppTitle from "./aboutProjectComponents/appTitle";
-import Calculator from "./calculatorComponents/calculator";
-import AboutProjectCard from "./aboutProjectComponents/aboutProjectCard";
+import AppTitle from './aboutProjectComponents/appTitle'
+import Calculator from './calculatorComponents/calculator'
 
 function App() {
   return (
     <div className="app">
       <AppTitle />
       <Calculator />
-      <AboutProjectCard />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

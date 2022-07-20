@@ -1,10 +1,5 @@
 const ManipulateNumbersButton = () => {
-  return (
-    <h4 className="appTitle">
-      Calculator developed by{" "}
-      <a href="https://www.linkedin.com/in/davidronnlid/">David Rönnlid</a>
-    </h4>
-  );
-};
+  return <h1 className="appTitle">Calculator developed by David Rönnlid</h1>
+}
 
-export default ManipulateNumbersButton;
+export default ManipulateNumbersButton
