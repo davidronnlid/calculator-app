@@ -1,25 +1,25 @@
 @import '../node_modules/bootstrap/scss/bootstrap';
 
-$app-background-color: #173d52;
-$primary-text-color: #e0e0e0;
-$calculator-button-color: #1976d2;
-$calculator-display-background: #0d2430;
+$primary-color: #173d52;
+$secondary-color: #e0e0e0;
+$tertiary-color: #0d2430;
+$button-color: #1976d2;
 
-$std-bs: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
-  rgba(0, 0, 0, 0.12) 0px 4px 6px,
-  rgba($calculator-display-background, 0.17) 0px 12px 13px,
-  rgba(0, 0, 0, 0.09) 0px -3px 5px;
-$std-ts: 2px 2px 5px 0d2430;
+$std-bs: rgba($tertiary-color, 0.25) 0px 54px 55px,
+  rgba($tertiary-color, 0.12) 0px -12px 30px,
+  rgba($tertiary-color, 0.12) 0px 4px 6px,
+  rgba($tertiary-color, 0.17) 0px 12px 13px,
+  rgba($tertiary-color, 0.09) 0px -3px 5px;
 
 @mixin box-border($multiplier: 1) {
-  border: $multiplier * 1px solid black;
+  border: $multiplier * 2px solid white;
   border-radius: 4px;
 }
 
 .app,
 body {
   text-align: center;
-  background-color: $app-background-color;
+  background-color: $primary-color;
   margin-bottom: 10vh;
 }
 
@@ -28,10 +28,14 @@ body {
   margin: 3rem auto;
   padding: 2rem 0.5rem;
   font-weight: 800;
-  background-color: $primary-text-color;
-  color: $calculator-display-background;
+  background-color: $secondary-color;
+  color: $tertiary-color;
   box-shadow: $std-bs;
-  text-shadow: $std-ts;
+  @include box-border(1);
+
+  & .appTitleLink {
+    color: $button-color;
+  }
 }
 
 .calcContainer {
@@ -39,9 +43,8 @@ body {
 }
 
 .calculatorDisplay {
-  background-color: $primary-text-color;
-  color: $calculator-display-background;
-  text-shadow: $std-bs;
+  background-color: $secondary-color;
+  color: $tertiary-color;
   padding: 12px 10px 20px 10px;
   margin: auto;
   width: 250px;
@@ -54,7 +57,7 @@ body {
 .calculatorButtons {
   display: grid;
   grid-template-columns: 22% 22% 22% 22%;
-  background-color: $calculator-display-background;
+  background-color: $tertiary-color;
   padding: 10px;
   margin: auto;
   width: 250px;
@@ -70,7 +73,7 @@ body {
 .calculatorButton {
   @include box-border(1);
   margin: 2px;
-  background-color: $calculator-button-color;
+  background-color: $button-color;
   box-shadow: $std-bs;
 }
 
