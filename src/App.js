@@ -1,7 +1,6 @@
-import './App.scss'
-
 import AppTitle from './aboutProjectComponents/appTitle'
 import Calculator from './calculatorComponents/calculator'
+import './scss/appStyles.scss'
 
 function App() {
   return (
