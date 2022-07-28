@@ -3,32 +3,32 @@ import NumberButton from "./numberButtons";
 import ManipulateNumbersButton from "./buttonsThatManipulateNumbers";
 
 const Calculator = () => {
-  const [numberList, setNumberList] = useState([]);
+  const [digitList, setDigitList] = useState([]);
 
-  const addToDisplayArray = (newNumber) => {
-    setNumberList((numberList) => [...numberList, newNumber.toString()]);
+  const addToDisplayArray = (newDigit) => {
+    setDigitList((digitList) => [...digitList, newDigit.toString()]);
   };
 
   const removeLastNumberFromDisplayArray = () => {
-    numberList.pop();
+    digitList.pop();
 
-    setNumberList((numberList) => [...numberList]);
+    setDigitList((digitList) => [...digitList]);
   };
   const removeAllNumbersFromDisplayArray = () => {
-    setNumberList((numberList) => {
-      while (numberList.length > 0) {
-        numberList.pop();
+    setDigitList((digitList) => {
+      while (digitList.length > 0) {
+        digitList.pop();
       }
-      return [...numberList];
+      return [...digitList];
     });
   };
 
   const onePercentOfCurrentlyDisplayedVal = () => {
-    setNumberList((numberList) => {
-      let numberArr = [...numberList];
-      let numberVar = numberArr.join("");
+    setDigitList((digitList) => {
+      let digitArr = [...digitList];
+      let digitVar = digitArr.join("");
 
-      let onePercent = numberVar / 100;
+      let onePercent = digitVar / 100;
 
       onePercent = onePercent.toString().split("");
       return onePercent;
@@ -38,23 +38,23 @@ const Calculator = () => {
   const evaluateDisplayVal = () => {
     //Takes numbers before/after a possible user-selected arithmetic operator and carries out the operation in question on these two numbers
 
-    setNumberList((numberList) => {
+    setDigitList((digitList) => {
       let operator, operatorIndex;
 
-      // const ifMultipleOperators = (numberList, operatorIndex) => {
+      // const ifMultipleOperators = (digitList, operatorIndex) => {
       //   if (operatorIndex >= 0) {
       //     console.log("more than one operator selected");
       //     alert(
       //       "Only one operation per evaluation is allowed in this calculator."
       //     );
-      //     return numberList;
+      //     return digitList;
       //   }
       // };
 
-      for (let i = 0; i < numberList.length; i++) {
-        // ifMultipleOperators(numberList, operatorIndex);
+      for (let i = 0; i < digitList.length; i++) {
+        // ifMultipleOperators(digitList, operatorIndex);
 
-        switch (numberList[i]) {
+        switch (digitList[i]) {
           case "+":
             operator = "+";
             operatorIndex = i;
@@ -76,12 +76,10 @@ const Calculator = () => {
             break;
         }
       }
-      //Find possible operator and their index in numberList
+      //Find possible operator and their index in digitList
 
-      const firstVar = parseFloat(numberList.join("").slice(0, operatorIndex));
-      const secondVar = parseFloat(
-        numberList.join("").slice(operatorIndex + 1)
-      );
+      const firstVar = parseFloat(digitList.join("").slice(0, operatorIndex));
+      const secondVar = parseFloat(digitList.join("").slice(operatorIndex + 1));
       //Assign all numbers before/after the operator to separate variables and turn these numbers into type float
 
       let result;
@@ -97,13 +95,13 @@ const Calculator = () => {
       //Carry out the user-selected operation and assign it to a new variable "result"
 
       if (
-        !numberList.find((elm) => elm === operator) ||
+        !digitList.find((elm) => elm === operator) ||
         !secondVar ||
-        !numberList.length
+        !digitList.length
       ) {
         alert("No operations to evaluate");
-        return numberList;
-        // If there are no operators, or if there are no numbers after an operator, or if there are no numbers at all to evaluate, then return unmanipulated numberList
+        return digitList;
+        // If there are no operators, or if there are no numbers after an operator, or if there are no numbers at all to evaluate, then return unmanipulated digitList
       } else {
         result = [...result.toString()];
         //Set result to be an array so that the user can continue to add and manipulate numbers in interaction with display (would not be possible if result was still of type number)
@@ -121,9 +119,10 @@ const Calculator = () => {
   return (
     <div className="calcContainer">
       <h2 className="calculatorDisplay">
-        {Array.isArray(numberList)
-          ? numberList.filter((elm, indx) => indx <= 7 && elm)
-          : numberList}
+        {Array.isArray(digitList)
+          ? digitList.filter((elm, indx) => indx <= 7 && elm)
+          : // If digitList is arr, then return first 8 items of this arr
+            digitList}
       </h2>
       <div className="calculatorButtons">
         <ManipulateNumbersButton
