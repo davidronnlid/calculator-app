@@ -4,9 +4,52 @@ import ManipulateNumbersButton from "./buttonsThatManipulateNumbers";
 
 const Calculator = () => {
   const [digitList, setDigitList] = useState([]);
+  const operators = ["+", "-", "X", "/"];
 
   const addToDisplayArray = (newDigit) => {
-    setDigitList((digitList) => [...digitList, newDigit.toString()]);
+    if (digitList.length === 0) {
+      // Above if statement is executed when the user clicks on an operator or number and the digitList is empty
+
+      if (operators.includes(newDigit)) {
+        alert(
+          "No number to operate on. Please select number(s) before clicking an operator."
+        );
+        return digitList;
+        // Return empty digitList and alert user if first digit is an operator
+      } else {
+        return setDigitList(() => [newDigit.toString()]);
+        // Update digitList if first digit is not an operator (then it is a number)
+      }
+    }
+
+    const newDigitIsOperator = () => {
+      let isOperator = false;
+      isOperator = operators.includes(newDigit);
+      return isOperator; // Returns true if newDigit is an operator. False if a number
+    };
+
+    const digitListIncludesOperator = () => {
+      let hasOperator = false;
+
+      for (let i = 0; i < operators.length; i++) {
+        digitList.indexOf(operators[i]) === -1
+          ? (hasOperator = false)
+          : (hasOperator = true);
+        if (hasOperator) {
+          break;
+        }
+      }
+
+      return hasOperator; // hasOperator is expected to be true if digitList has an operator since before but false if no operators have previously been added to digitList
+    };
+
+    if (newDigitIsOperator() && digitListIncludesOperator()) {
+      // If the new digit is an operator and if the digitList already has an operator, then alert the user that this calculator only handles single-operator operations and return digitList unchanged so that the calc. display doesn't change at all if user clicks an operator after previously clicking an operator without evaluating operation.
+      alert("This calculator allows max. one operation at a time");
+      return digitList;
+    } else {
+      return setDigitList((digitList) => [...digitList, newDigit.toString()]);
+    }
   };
 
   const removeLastNumberFromDisplayArray = () => {
@@ -36,24 +79,12 @@ const Calculator = () => {
   };
 
   const evaluateDisplayVal = () => {
-    //Takes numbers before/after a possible user-selected arithmetic operator and carries out the operation in question on these two numbers
+    //Takes numbers before/after a possible user-selected arithmetic operator and carries out the operation on these
 
     setDigitList((digitList) => {
       let operator, operatorIndex;
 
-      // const ifMultipleOperators = (digitList, operatorIndex) => {
-      //   if (operatorIndex >= 0) {
-      //     console.log("more than one operator selected");
-      //     alert(
-      //       "Only one operation per evaluation is allowed in this calculator."
-      //     );
-      //     return digitList;
-      //   }
-      // };
-
       for (let i = 0; i < digitList.length; i++) {
-        // ifMultipleOperators(digitList, operatorIndex);
-
         switch (digitList[i]) {
           case "+":
             operator = "+";
@@ -99,7 +130,7 @@ const Calculator = () => {
         !secondVar ||
         !digitList.length
       ) {
-        alert("No operations to evaluate");
+        alert("No operations to evaluate.");
         return digitList;
         // If there are no operators, or if there are no numbers after an operator, or if there are no numbers at all to evaluate, then return unmanipulated digitList
       } else {
@@ -108,8 +139,8 @@ const Calculator = () => {
       }
 
       if (result.length > 8) {
-        alert("Operations that return more than 8 digits are not allowed");
-        return ["ERR"];
+        alert("Operations that return more than 8 digits are not allowed.");
+        return ["ERROR"];
       }
 
       return result;
