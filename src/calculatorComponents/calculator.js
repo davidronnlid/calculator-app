@@ -164,7 +164,9 @@ const Calculator = () => {
 
   return (
     <div className="calcContainer">
-      <ErrorToast errorMessage={calculatorError} resetError={resetError} />
+      {calculatorError ? (
+        <ErrorToast errorMessage={calculatorError} resetError={resetError} />
+      ) : null}
       <h2 className="calculatorDisplay">
         {Array.isArray(digitList)
           ? digitList.filter((elm, indx) => indx <= 7 && elm)

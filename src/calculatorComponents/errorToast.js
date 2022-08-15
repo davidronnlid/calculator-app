@@ -16,7 +16,7 @@ function ErrorToast({ errorMessage, resetError }) {
   );
 
   return (
-    <ToastContainer>
+    <ToastContainer position="middle-center">
       <Toast bg="danger" show={show} onClose={() => toggleShow()}>
         <Toast.Header>
           <strong className="me-auto">Error!</strong>
